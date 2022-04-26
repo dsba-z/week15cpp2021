@@ -52,6 +52,11 @@ struct Person
         out << "Name: " << std::setw(11) << name << ",  ";
         out << "Age: " << std::setw(2) << age;
     }
+    
+    virtual void capitalize()
+    {
+        name[0] = 'A';
+    }
 };
 
 
@@ -79,6 +84,12 @@ struct Passenger : public Person
         out << "Ticket: " << std::setw(6) << ticket << ",  ";
         out << "Fare: " << std::setw(5) << fare;
     }
+    
+    virtual void capitalize()
+    {
+        name[0] = 'A';
+        ticket[0] = 'A';
+    }
 };
 
 
@@ -103,6 +114,12 @@ struct Citizen : public Person
         out << "Age: " << std::setw(2) << age << ",  ";
         out << "City: " << std::setw(9) << city;
     }
+    
+    virtual void capitalize()
+    {
+        name[0] = 'A';
+        city[0] = 'A';
+    }
 };
 
 std::ostream& operator<<(std::ostream& out, const Person& p)
@@ -111,18 +128,10 @@ std::ostream& operator<<(std::ostream& out, const Person& p)
     return out;
 }
 
-std::ostream& operator<<(std::ostream& out, const Passenger& p)
-{
-    
-    p.print(out);
-    return out;
-}
 
-std::ostream& operator<<(std::ostream& out, const Citizen& p)
+void capitalize(Person* p)
 {
-    
-    p.print(out);
-    return out;
+    p->capitalize();
 }
 
 int main()
@@ -136,8 +145,9 @@ int main()
         std::cout << "1. Add person\n";
         std::cout << "2. Add passenger\n";
         std::cout << "3. Add citizen\n";
-        std::cout << "4. Delete all\n";
-        std::cout << "5. Quit\n";
+        std::cout << "4. Change first character to A\n";
+        std::cout << "5. Delete all\n";
+        std::cout << "6. Quit\n";
         
         int n;
         std::cin >> n;
@@ -157,11 +167,17 @@ int main()
         else if (n == 4) {
             for (Person* a: v)
             {
+                capitalize(a);
+            }
+        }
+        else if (n == 5) {
+            for (Person* a: v)
+            {
                 delete a;
             }
             v.clear();
         }
-        else if (n == 5) {
+        else if (n == 6) {
             break;
         }
         for (const Person* a: v)
