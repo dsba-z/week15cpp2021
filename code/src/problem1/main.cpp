@@ -111,20 +111,6 @@ std::ostream& operator<<(std::ostream& out, const Person& p)
     return out;
 }
 
-std::ostream& operator<<(std::ostream& out, const Passenger& p)
-{
-    
-    p.print(out);
-    return out;
-}
-
-std::ostream& operator<<(std::ostream& out, const Citizen& p)
-{
-    
-    p.print(out);
-    return out;
-}
-
 int main()
 {
     std::srand(std::time(nullptr));

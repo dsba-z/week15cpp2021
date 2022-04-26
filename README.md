@@ -12,7 +12,7 @@ Add a class `Student` similar to classes `Passenger` and `Citizen`. Aside from n
 
 ## Task 2. Virtual.
 
-Make a function `void capitalize(Person* p)` that works for all four classes and capitalizes all their fields that contains strings.
+Make a function `void capitalize(Person* p)` that works for all four classes and capitalizes all their fields that contains strings. Use the function `toupper()` from header `<cctype>`.
 
 See the implementation of `operator <<` for hints how to implement this function. Use virtual methods.
 
