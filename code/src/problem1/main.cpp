@@ -67,12 +67,7 @@ struct Passenger : public Person
         fare = getRandDouble(5, 40);
     }
     
-    virtual ~Passenger()
-    {
-        
-    }
-    
-    virtual void print(std::ostream& out) const
+    void print(std::ostream& out) const
     {
         out << "Name: " << std::setw(11) << name << ",  ";
         out << "Age: " << std::setw(2) << age << ",  ";
@@ -92,12 +87,7 @@ struct Citizen : public Person
         city = getRandString(7);
     }
     
-    virtual ~Citizen()
-    {
-        
-    }
-    
-    virtual void print(std::ostream& out) const
+    void print(std::ostream& out) const
     {
         out << "Name: " << std::setw(11) << name << ",  ";
         out << "Age: " << std::setw(2) << age << ",  ";
